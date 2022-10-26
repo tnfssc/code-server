@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  code-server:
+    build: .
+    image: tnfssc/code-server:latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./workspace:/workspace
+
+  cloudflared:
+    image: cloudflare/cloudflared
+    command: tunnel --url http://code-server:8080
