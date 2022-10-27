@@ -1,21 +1,12 @@
 {
-  "latex-workshop.linting.run": "onType",
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
   "workbench.startupEditor": "none",
   "[python]": {
     "editor.defaultFormatter": "ms-python.python"
   },
   "sqltools.connections": [],
   "github.copilot.enable": {
-    "*": true,
-    "yaml": true,
-    "plaintext": true,
-    "markdown": true
+    "*": true
   },
-  "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.latex.outDir": "%DIR%/out",
   "[dotenv]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
@@ -36,17 +27,10 @@
     "**/.classpath": true,
     "**/.factorypath": true
   },
-  "terminal.explorerKind": "external",
   "editor.accessibilitySupport": "off",
-  "explorer.confirmDragAndDrop": false,
   "editor.inlineSuggest.enabled": true,
-  "terminal.integrated.defaultProfile.windows": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
-  "javascript.updateImportsOnFileMove.enabled": "always",
   "editor.linkedEditing": true,
   "git.confirmSync": false,
-  "[octave]": {
-    "editor.defaultFormatter": "tusindfryd.octave-formatter"
-  },
   "eslint.alwaysShowStatus": true,
   "go.toolsManagement.autoUpdate": true,
   "[yaml]": {
@@ -76,7 +60,6 @@
   "[svelte]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "react-native-tools.showUserTips": false,
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -85,24 +68,23 @@
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
   "editor.renderWhitespace": "none",
-  "terminal.external.linuxExec": "konsole",
   "[vanillajavascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "terminal.integrated.defaultProfile.linux": "zsh",
   "[cpp]": {
-    "editor.defaultFormatter": "ms-vscode.cpptools"
+    "editor.defaultFormatter": "jeff-hykin.better-cpp-syntax"
   },
   "python.formatting.provider": "black",
   "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+    "editor.defaultFormatter": "rust-lang.rust"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.guides.bracketPairs": "active",
   "[xml]": {
-    "editor.defaultFormatter": "DotJoshJohnson.xml"
+    "editor.defaultFormatter": "redhat.vscode-xml"
   },
   "git.autofetch": true,
   "[jsonc]": {
@@ -124,7 +106,7 @@
   "explorer.confirmDelete": false,
   "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
   "files.eol": "\n",
-  "editor.fontFamily": "'Cascadia Code', 'MesloLGS NF', 'Courier New', monospace",
+  "editor.fontFamily": "'FiraCode Nerd Font', 'MesloLGS NF', 'Courier New', monospace",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "update.showReleaseNotes": false,
   "editor.fontSize": 15,
@@ -142,9 +124,8 @@
     "FIG_NEW_SESSION": "1"
   },
   "[php]": {
-    "editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+    "editor.defaultFormatter": "felixfbecker.php-intellisense"
   },
-  "thunder-client.htmlView": "Raw Html",
   "[ignore]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
@@ -202,7 +183,7 @@
     "comments": "#a2ff0097"
   },
   "[go]": {
-    "editor.defaultFormatter": "golang.go"
+    "editor.defaultFormatter": "golang.Go"
   },
   "go.inlayHints.constantValues": true,
   "go.inlayHints.compositeLiteralTypes": true,
@@ -223,6 +204,9 @@
   },
   "editor.fontWeight": "normal",
   "[dockercompose]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[dockerfile]": {
     "editor.defaultFormatter": "ms-azuretools.vscode-docker"
   }
 }
