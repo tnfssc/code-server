@@ -1,5 +1,3 @@
-# My testing-space
-
 FROM ubuntu:jammy
 
 RUN apt update && apt install nala -y
@@ -16,7 +14,50 @@ RUN nala install -y \
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN curl -fsSL https://code-server.dev/install.sh | sh
-RUN for i in "ms-python.python" "astro-build.astro-vscode" "formulahendry.auto-rename-tag" "jeff-hykin.better-cpp-syntax" "aaron-bond.better-comments" "streetsidesoftware.code-spell-checker" "pranaygp.vscode-css-peek" "Dart-Code.dart-code" "mikestead.dotenv" "janisdd.vscode-edit-csv" "EditorConfig.EditorConfig" "Tobermory.es6-string-html" "dbaeumer.vscode-eslint" "tamasfe.even-better-toml" "cschleiden.vscode-github-actions" "codezombiech.gitignore" "eamodio.gitlens" "golang.Go" "ecmel.vscode-html-css" "wix.vscode-import-cost" "Orta.vscode-jest" "ms-kubernetes-tools.vscode-kubernetes-tools" "redhat.java" "DavidAnson.vscode-markdownlint" "PKief.material-icon-theme" "PKief.material-product-icons" "unifiedjs.vscode-mdx" "mongodb.mongodb-vscode" "Equinusocio.vsc-community-material-theme" "christian-kohler.path-intellisense" "redhat.vscode-xml" "felixfbecker.php-intellisense" "esbenp.prettier-vscode" "Prisma.prisma" "redhat.vscode-commons" "rust-lang.rust" "foxundermoon.shell-format" "Divlo.vscode-styled-jsx-languageserver" "Divlo.vscode-styled-jsx-syntax" "svelte.svelte-vscode" "bradlc.vscode-tailwindcss" "Gruntfuggly.todo-tree" "johnsoncodehk.volar" "ZixuanChen.vitest-explorer" "redhat.vscode-yaml" "stylelint.vscode-stylelint"; do code-server --install-extension $i; done
+RUN code-server --install-extension ms-python.python \
+  --install-extension astro-build.astro-vscode \
+  --install-extension formulahendry.auto-rename-tag \
+  --install-extension jeff-hykin.better-cpp-syntax \
+  --install-extension aaron-bond.better-comments \
+  --install-extension streetsidesoftware.code-spell-checker \
+  --install-extension pranaygp.vscode-css-peek \
+  --install-extension Dart-Code.dart-code \
+  --install-extension mikestead.dotenv \
+  --install-extension tamasfe.even-better-toml \
+  --install-extension cschleiden.vscode-github-actions \
+  --install-extension codezombiech.gitignore \
+  --install-extension eamodio.gitlens \
+  --install-extension golang.Go \
+  --install-extension ecmel.vscode-html-css \
+  --install-extension wix.vscode-import-cost \
+  --install-extension Orta.vscode-jest \
+  --install-extension ms-kubernetes-tools.vscode-kubernetes-tools \
+  --install-extension redhat.java \
+  --install-extension DavidAnson.vscode-markdownlint \
+  --install-extension PKief.material-icon-theme \
+  --install-extension PKief.material-product-icons \
+  --install-extension unifiedjs.vscode-mdx \
+  --install-extension mongodb.mongodb-vscode \
+  --install-extension Equinusocio.vsc-community-material-theme \
+  --install-extension christian-kohler.path-intellisense \
+  --install-extension redhat.vscode-xml \
+  --install-extension felixfbecker.php-intellisense \
+  --install-extension esbenp.prettier-vscode \
+  --install-extension Prisma.prisma \
+  --install-extension redhat.vscode-commons \
+  --install-extension rust-lang.rust \
+  --install-extension foxundermoon.shell-format \
+  --install-extension Divlo.vscode-styled-jsx-languageserver \
+  --install-extension Divlo.vscode-styled-jsx-syntax \
+  --install-extension svelte.svelte-vscode \
+  --install-extension bradlc.vscode-tailwindcss \
+  --install-extension Gruntfuggly.todo-tree \
+  --install-extension johnsoncodehk.volar \
+  --install-extension ZixuanChen.vitest-explorer \
+  --install-extension redhat.vscode-yaml \
+  --install-extension stylelint.vscode-stylelint \
+  --install-extension ms-azuretools.vscode-docker
+
 RUN curl -fsSL https://starship.rs/install.sh | sh -s -- --yes && mkdir -p ~/.config && starship preset pastel-powerline > ~/.config/starship.toml && echo 'eval "$(starship init bash)"' >> ~/.bashrc
 
 COPY ./settings.json /root/.local/share/code-server/User/settings.json
