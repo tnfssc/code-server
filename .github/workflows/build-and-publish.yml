@@ -26,4 +26,5 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
+          platforms: linux/arm64
           tags: tnfssc/code-server:latest
