@@ -66,6 +66,9 @@ RUN chsh -s /usr/bin/fish
 ENV SHELL /usr/bin/fish
 ENV LANG=C.UTF-8 LANGUAGE=C.UTF-8 LC_ALL=C.UTF-8
 
+RUN /usr/bin/fish --command "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
+RUN /usr/bin/fish --command "fisher install jorgebucaran/nvm.fish"
+RUN /usr/bin/fish --command 'echo "set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths" >> ~/.config/fish/config.fish'
 RUN /usr/bin/fish --command "curl -fsSL https://starship.rs/install.sh | sh -s -- --yes && mkdir -p ~/.config && starship preset pastel-powerline > ~/.config/starship.toml && echo 'starship init fish | source' >> ~/.config/fish/config.fish"
 
 COPY ./settings.json /root/.local/share/code-server/User/settings.json
