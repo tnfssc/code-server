@@ -16,8 +16,8 @@ RUN nala install -y \
   fish
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN curl -fsSL https://code-server.dev/install.sh | sh
+
 RUN code-server --install-extension ms-python.python \
   --install-extension astro-build.astro-vscode \
   --install-extension formulahendry.auto-rename-tag \
@@ -68,6 +68,7 @@ ENV LANG=C.UTF-8 LANGUAGE=C.UTF-8 LC_ALL=C.UTF-8
 
 RUN /usr/bin/fish --command "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
 RUN /usr/bin/fish --command "fisher install jorgebucaran/nvm.fish"
+RUN /usr/bin/fish --command "nvm install 18"
 RUN /usr/bin/fish --command 'echo "set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths" >> ~/.config/fish/config.fish'
 RUN /usr/bin/fish --command "curl -fsSL https://starship.rs/install.sh | sh -s -- --yes && mkdir -p ~/.config && starship preset pastel-powerline > ~/.config/starship.toml && echo 'starship init fish | source' >> ~/.config/fish/config.fish"
 
