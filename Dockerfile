@@ -1,15 +1,24 @@
 FROM ubuntu:jammy
 
-RUN apt update && apt install nala -y
+RUN apt update
+RUN apt install --quiet --yes software-properties-common nala
+RUN add-apt-repository --yes ppa:fish-shell/release-3
 RUN nala update && nala fetch --auto -y
 RUN nala install -y \
+  openssh-client \
   build-essential \
   git \
   curl \
   wget \
   python3 \
   python3-pip \
-  golang
+  golang \
+  fish
+
+SHELL ["fish", "--command"]
+RUN chsh -s /usr/bin/fish
+ENV SHELL /usr/bin/fish
+ENV LANG=C.UTF-8 LANGUAGE=C.UTF-8 LC_ALL=C.UTF-8
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
@@ -58,7 +67,7 @@ RUN code-server --install-extension ms-python.python \
   --install-extension stylelint.vscode-stylelint \
   --install-extension ms-azuretools.vscode-docker
 
-RUN curl -fsSL https://starship.rs/install.sh | sh -s -- --yes && mkdir -p ~/.config && starship preset pastel-powerline > ~/.config/starship.toml && echo 'eval "$(starship init bash)"' >> ~/.bashrc
+RUN curl -fsSL https://starship.rs/install.sh | sh -s -- --yes && mkdir -p ~/.config && starship preset pastel-powerline > ~/.config/starship.toml && echo 'starship init fish | source' >> ~/.config/fish/config.fish
 
 COPY ./settings.json /root/.local/share/code-server/User/settings.json
 RUN mkdir /workspace
