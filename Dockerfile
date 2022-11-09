@@ -49,7 +49,7 @@ RUN code-server --install-extension ms-python.python \
   --install-extension esbenp.prettier-vscode \
   --install-extension Prisma.prisma \
   --install-extension redhat.vscode-commons \
-  --install-extension rust-lang.rust \
+  --install-extension rust-lang.rust-analyzer \
   --install-extension foxundermoon.shell-format \
   --install-extension Divlo.vscode-styled-jsx-languageserver \
   --install-extension Divlo.vscode-styled-jsx-syntax \
