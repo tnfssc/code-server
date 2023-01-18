@@ -92,7 +92,7 @@
   },
   "editor.bracketPairColorization.enabled": true,
   "editor.fontLigatures": true,
-  "workbench.colorTheme": "Community Material Theme Darker",
+  "workbench.colorTheme": "SkillAvid Pure Black",
   "workbench.editor.untitled.hint": "hidden",
   "python.defaultInterpreterPath": "/usr/bin/python",
   "typescript.disableAutomaticTypeAcquisition": true,

@@ -16,6 +16,7 @@ RUN nala install -y \
   fish
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+RUN curl -fsSL https://deno.land/x/install/install.sh | sh
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 RUN code-server --install-extension ms-python.python \
@@ -60,7 +61,9 @@ RUN code-server --install-extension ms-python.python \
   --install-extension ZixuanChen.vitest-explorer \
   --install-extension redhat.vscode-yaml \
   --install-extension stylelint.vscode-stylelint \
-  --install-extension ms-azuretools.vscode-docker
+  --install-extension ms-azuretools.vscode-docker \
+  --install-extension denoland.vscode-deno \
+  --install-extension redwan-hossain.skillavid-pure-black
 
 RUN chsh -s /usr/bin/fish
 ENV SHELL /usr/bin/fish
