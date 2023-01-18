@@ -17,7 +17,7 @@ RUN nala install -y \
   unzip
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-RUN curl -fsSL https://deno.land/x/install/install.sh | sh
+RUN curl -s https://gist.githubusercontent.com/LukeChannings/09d53f5c364391042186518c8598b85e/raw/ac8cd8c675b985edd4b3e16df63ffef14d1f0e24/deno_install.sh | sh
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 
 RUN code-server --install-extension ms-python.python \
