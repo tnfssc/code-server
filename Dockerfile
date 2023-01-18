@@ -13,7 +13,8 @@ RUN nala install -y \
   python3 \
   python3-pip \
   golang \
-  fish
+  fish \
+  unzip
 
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 RUN curl -fsSL https://deno.land/x/install/install.sh | sh
