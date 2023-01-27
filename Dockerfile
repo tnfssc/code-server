@@ -13,12 +13,30 @@ RUN nala install -y \
   git \
   curl \
   wget \
-  fish
-
-# Install asdf-vm
-RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf
-RUN echo -e "\nsource ~/.asdf/asdf.fish" >> ~/.config/fish/config.fish
-RUN mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+  fish \
+  unzip
+RUN nala install -y \
+  autoconf \
+  bison \
+  gettext \
+  libgd-dev \
+  libcurl4-openssl-dev \
+  libedit-dev \
+  libicu-dev \
+  libjpeg-dev \
+  libmysqlclient-dev \
+  libonig-dev \
+  libpng-dev \
+  libpq-dev \
+  libreadline-dev \
+  libsqlite3-dev \
+  libssl-dev \
+  libxml2-dev \
+  libzip-dev \
+  openssl \
+  pkg-config \
+  re2c \
+  zlib1g-dev 
 
 # Install Code Server
 RUN curl -fsSL https://code-server.dev/install.sh | sh
@@ -73,18 +91,34 @@ ENV LANG=C.UTF-8 LANGUAGE=C.UTF-8 LC_ALL=C.UTF-8
 # Use shell fish
 SHELL ["/usr/bin/fish", "-c"]
 
+# Install asdf-vm
+RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+RUN mkdir -p ~/.config/fish/completions
+RUN ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+RUN echo -e '\nsource ~/.asdf/asdf.fish' >> ~/.config/fish/config.fish
+RUN echo -e '\nlegacy_version_file = yes' >> ~/.asdfrc
+
 # Install asdf plugins
-RUN "asdf plugin add bun && asdf install bun latest && asdf global bun latest"
-RUN "asdf plugin add deno && asdf install deno latest && asdf global deno latest"
-RUN "asdf plugin add golang && asdf install golang latest && asdf global golang latest"
-RUN "asdf plugin add nodejs && asdf install nodejs lts && asdf global nodejs lts"
-RUN "asdf plugin add php && asdf install php latest && asdf global php latest"
-RUN "asdf plugin add python && asdf install python latest && asdf global python latest"
-RUN "asdf plugin add rust && asdf install rust latest && asdf global rust latest"
-RUN "asdf plugin add rust-analyzer && asdf install rust-analyzer latest && asdf global rust-analyzer latest"
+RUN asdf plugin add bun && asdf install bun latest && asdf global bun latest
+RUN asdf plugin add golang && asdf install golang latest && asdf global golang latest
+RUN asdf plugin add nodejs && asdf install nodejs 18.13.0 && asdf global nodejs 18.13.0
+RUN asdf plugin add python && asdf install python latest && asdf global python latest
+RUN asdf plugin add rust && asdf install rust latest && asdf global rust latest
+RUN asdf plugin add rust-analyzer && asdf install rust-analyzer latest && asdf global rust-analyzer latest
+RUN asdf plugin add php && asdf install php latest && asdf global php latest
+RUN asdf reshim
+
+# Configure tools
+RUN pecl install redis && echo "extension=redis.so" > $(asdf where php)/conf.d/php.ini
+RUN corepack enable
+RUN rustup target add wasm32-unknown-unknown && rustup target add wasm32-wasi
+RUN asdf reshim
+
+# Install Deno ARM64 (because official deno doesn't provide ARM64 binaries)
+RUN curl -s https://gist.githubusercontent.com/LukeChannings/09d53f5c364391042186518c8598b85e/raw/ac8cd8c675b985edd4b3e16df63ffef14d1f0e24/deno_install.sh | sh
 
 # Install starship prompt
-RUN "curl -fsSL https://starship.rs/install.sh | sh -s -- --yes && mkdir -p ~/.config && starship preset pastel-powerline > ~/.config/starship.toml && echo 'starship init fish | source' >> ~/.config/fish/config.fish"
+RUN curl -fsSL https://starship.rs/install.sh | sh -s -- --yes && mkdir -p ~/.config && starship preset pastel-powerline > ~/.config/starship.toml && echo 'starship init fish | source' >> ~/.config/fish/config.fish
 
 # Copy static files (settings.json, etc.,)
 COPY ./settings.json /root/.local/share/code-server/User/settings.json
