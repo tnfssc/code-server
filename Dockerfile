@@ -105,17 +105,12 @@ RUN asdf plugin add nodejs && asdf install nodejs 18.13.0 && asdf global nodejs 
 RUN asdf plugin add python && asdf install python latest && asdf global python latest
 RUN asdf plugin add rust && asdf install rust latest && asdf global rust latest
 RUN asdf plugin add rust-analyzer && asdf install rust-analyzer latest && asdf global rust-analyzer latest
-RUN asdf plugin add php && asdf install php latest && asdf global php latest
 RUN asdf reshim
 
 # Configure tools
-RUN pecl install redis && echo "extension=redis.so" > $(asdf where php)/conf.d/php.ini
 RUN corepack enable
 RUN rustup target add wasm32-unknown-unknown && rustup target add wasm32-wasi
 RUN asdf reshim
-
-# Install Deno ARM64 (because official deno doesn't provide ARM64 binaries)
-# RUN curl -s https://gist.githubusercontent.com/LukeChannings/09d53f5c364391042186518c8598b85e/raw/ac8cd8c675b985edd4b3e16df63ffef14d1f0e24/deno_install.sh | sh
 
 # Install starship prompt
 RUN curl -fsSL https://starship.rs/install.sh | sh -s -- --yes && mkdir -p ~/.config && starship preset pastel-powerline > ~/.config/starship.toml && echo 'starship init fish | source' >> ~/.config/fish/config.fish
