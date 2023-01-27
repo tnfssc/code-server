@@ -1,7 +1,10 @@
 FROM ubuntu:jammy
 
+# Install Nala
 RUN apt update
 RUN apt install --quiet --yes software-properties-common nala
+
+# Install basic dependencies
 RUN add-apt-repository --yes ppa:fish-shell/release-3
 RUN nala update && nala fetch --auto -y
 RUN nala install -y \
@@ -10,16 +13,15 @@ RUN nala install -y \
   git \
   curl \
   wget \
-  python3 \
-  python3-pip \
-  golang \
-  fish \
-  unzip
+  fish
 
-RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-RUN curl -s https://gist.githubusercontent.com/LukeChannings/09d53f5c364391042186518c8598b85e/raw/ac8cd8c675b985edd4b3e16df63ffef14d1f0e24/deno_install.sh | sh
+# Install asdf-vm
+RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf
+RUN echo -e "\nsource ~/.asdf/asdf.fish" >> ~/.config/fish/config.fish
+RUN mkdir -p ~/.config/fish/completions; and ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+
+# Install Code Server
 RUN curl -fsSL https://code-server.dev/install.sh | sh
-
 RUN code-server --install-extension ms-python.python \
   --install-extension astro-build.astro-vscode \
   --install-extension formulahendry.auto-rename-tag \
@@ -43,8 +45,6 @@ RUN code-server --install-extension ms-python.python \
   --install-extension PKief.material-icon-theme \
   --install-extension PKief.material-product-icons \
   --install-extension unifiedjs.vscode-mdx \
-  --install-extension mongodb.mongodb-vscode \
-  --install-extension Equinusocio.vsc-community-material-theme \
   --install-extension christian-kohler.path-intellisense \
   --install-extension redhat.vscode-xml \
   --install-extension felixfbecker.php-intellisense \
@@ -59,25 +59,40 @@ RUN code-server --install-extension ms-python.python \
   --install-extension bradlc.vscode-tailwindcss \
   --install-extension Gruntfuggly.todo-tree \
   --install-extension johnsoncodehk.volar \
-  --install-extension ZixuanChen.vitest-explorer \
   --install-extension redhat.vscode-yaml \
   --install-extension stylelint.vscode-stylelint \
   --install-extension ms-azuretools.vscode-docker \
   --install-extension denoland.vscode-deno \
   --install-extension redwan-hossain.skillavid-pure-black
 
+# Change default shell to fish
 RUN chsh -s /usr/bin/fish
 ENV SHELL /usr/bin/fish
 ENV LANG=C.UTF-8 LANGUAGE=C.UTF-8 LC_ALL=C.UTF-8
 
-RUN /usr/bin/fish --command "curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher"
-RUN /usr/bin/fish --command "fisher install jorgebucaran/nvm.fish"
-RUN /usr/bin/fish --command "nvm install 18"
-RUN /usr/bin/fish --command 'echo "set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths" >> ~/.config/fish/config.fish'
-RUN /usr/bin/fish --command "curl -fsSL https://starship.rs/install.sh | sh -s -- --yes && mkdir -p ~/.config && starship preset pastel-powerline > ~/.config/starship.toml && echo 'starship init fish | source' >> ~/.config/fish/config.fish"
+# Use shell fish
+SHELL ["/usr/bin/fish", "-c"]
 
+# Install asdf plugins
+RUN "asdf plugin add bun && asdf install bun latest && asdf global bun latest"
+RUN "asdf plugin add deno && asdf install deno latest && asdf global deno latest"
+RUN "asdf plugin add golang && asdf install golang latest && asdf global golang latest"
+RUN "asdf plugin add nodejs && asdf install nodejs lts && asdf global nodejs lts"
+RUN "asdf plugin add php && asdf install php latest && asdf global php latest"
+RUN "asdf plugin add python && asdf install python latest && asdf global python latest"
+RUN "asdf plugin add rust && asdf install rust latest && asdf global rust latest"
+RUN "asdf plugin add rust-analyzer && asdf install rust-analyzer latest && asdf global rust-analyzer latest"
+
+# Install starship prompt
+RUN "curl -fsSL https://starship.rs/install.sh | sh -s -- --yes && mkdir -p ~/.config && starship preset pastel-powerline > ~/.config/starship.toml && echo 'starship init fish | source' >> ~/.config/fish/config.fish"
+
+# Copy static files (settings.json, etc.,)
 COPY ./settings.json /root/.local/share/code-server/User/settings.json
+
+# Create workspace directory
 RUN mkdir /workspace
 WORKDIR /workspace
+
+# Start code-server
 EXPOSE 8080
 CMD [ "code-server", "--bind-addr", "0.0.0.0:8080", "--auth", "none" ]
