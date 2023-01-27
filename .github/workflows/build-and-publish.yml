@@ -24,3 +24,6 @@ jobs:
           push: true
           platforms: linux/arm64, linux/amd64
           tags: tnfssc/code-server:latest
+          context: .
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
