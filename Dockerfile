@@ -36,7 +36,7 @@ RUN nala install -y \
   openssl \
   pkg-config \
   re2c \
-  zlib1g-dev 
+  zlib1g-dev
 
 # Install Code Server
 RUN curl -fsSL https://code-server.dev/install.sh | sh
@@ -81,7 +81,12 @@ RUN code-server --install-extension ms-python.python \
   --install-extension stylelint.vscode-stylelint \
   --install-extension ms-azuretools.vscode-docker \
   --install-extension denoland.vscode-deno \
-  --install-extension redwan-hossain.skillavid-pure-black
+  --install-extension redwan-hossain.skillavid-pure-black \
+  --install-extension bierner.markdown-preview-github-styles \
+  --install-extension zxh404.vscode-proto3 \
+  --install-extension adpyke.codesnap \
+  --install-extension oderwat.indent-rainbow \
+  --install-extension tabnine.tabnine-vscode
 
 # Change default shell to fish
 RUN chsh -s /usr/bin/fish
