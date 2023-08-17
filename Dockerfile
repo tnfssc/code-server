@@ -46,7 +46,6 @@ RUN code-server --install-extension ms-python.python \
   --install-extension jeff-hykin.better-cpp-syntax \
   --install-extension aaron-bond.better-comments \
   --install-extension streetsidesoftware.code-spell-checker \
-  --install-extension pranaygp.vscode-css-peek \
   --install-extension Dart-Code.dart-code \
   --install-extension mikestead.dotenv \
   --install-extension tamasfe.even-better-toml \
@@ -106,7 +105,7 @@ RUN echo -e '\nlegacy_version_file = yes' >> ~/.asdfrc
 # Install asdf plugins
 RUN asdf plugin add bun && asdf install bun latest && asdf global bun latest
 RUN asdf plugin add golang && asdf install golang latest && asdf global golang latest
-RUN asdf plugin add nodejs && asdf install nodejs 18.13.0 && asdf global nodejs 18.13.0
+RUN asdf plugin add nodejs && asdf install nodejs latest && asdf global nodejs latest
 RUN asdf plugin add python && asdf install python latest && asdf global python latest
 RUN asdf plugin add rust && asdf install rust latest && asdf global rust latest
 RUN asdf plugin add rust-analyzer && asdf install rust-analyzer latest && asdf global rust-analyzer latest
