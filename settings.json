@@ -4,9 +4,11 @@
     "editor.defaultFormatter": "ms-python.python"
   },
   "sqltools.connections": [],
-  "github.copilot.enable": {
-    "*": true
-  },
+  "debug.console.fontSize": 18,
+  "debug.onTaskErrors": "debugAnyway",
+  "diffEditor.maxComputationTime": 0,
+  "editor.inlineSuggest.showToolbar": "always",
+  "editor.minimap.renderCharacters": false,
   "[dotenv]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
@@ -20,6 +22,12 @@
   "[java]": {
     "editor.defaultFormatter": "redhat.java"
   },
+  "[go.mod]": {
+    "editor.defaultFormatter": "golang.Go"
+  },
+  "[proto3]": {
+    "editor.defaultFormatter": "zxh404.vscode-proto3"
+  },
   "workbench.iconTheme": "material-icon-theme",
   "files.exclude": {
     "**/.project": true,
@@ -32,6 +40,17 @@
   "editor.linkedEditing": true,
   "git.confirmSync": false,
   "eslint.alwaysShowStatus": true,
+  "svelte.enable-ts-plugin": true,
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "svelte"
+  ],
   "go.toolsManagement.autoUpdate": true,
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -51,7 +70,12 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "prettier.printWidth": 120,
-  "terminal.integrated.fontFamily": "'FiraCode Nerd Font', 'MesloLGS NF'",
+  "terminal.integrated.fontFamily": "'CodeNewRoman Nerd Font', monospace",
+  "window.commandCenter": true,
+  "window.dialogStyle": "custom",
+  "window.nativeTabs": true,
+  "window.titleBarStyle": "custom",
+  "terminal.integrated.fontWeightBold": "599",
   "workbench.enableExperiments": false,
   "[javascriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -92,7 +116,7 @@
   },
   "editor.bracketPairColorization.enabled": true,
   "editor.fontLigatures": true,
-  "workbench.colorTheme": "SkillAvid Pure Black",
+  "workbench.colorTheme": "One Hunter Theme Vercel",
   "workbench.editor.untitled.hint": "hidden",
   "python.defaultInterpreterPath": "/usr/bin/python",
   "typescript.disableAutomaticTypeAcquisition": true,
@@ -130,6 +154,13 @@
     "editor.defaultFormatter": "foxundermoon.shell-format"
   },
   "cmake.configureOnOpen": false,
+  "chat.editor.fontSize": 18,
+  "Codegeex.CandidateNum": "3 (slow)",
+  "Codegeex.DecodingStrategies.temp": 0.01,
+  "Codegeex.DecodingStrategies.topk": 40,
+  "Codegeex.DecodingStrategies.topp": 0.8,
+  "Codegeex.Explanation.LanguagePreference": "en-US",
+  "Codegeex.Privacy": false,
   "[dart]": {
     "editor.defaultFormatter": "Dart-Code.dart-code"
   },
@@ -173,6 +204,30 @@
     "webdev",
     "wordcloud",
     "wouter",
+    "zustand",
+    "proto",
+    "protos",
+    "ptmx",
+    "rustdesk",
+    "rxchain",
+    "searxng",
+    "sharath",
+    "skaffold",
+    "stylelint",
+    "supabase",
+    "surrealdb",
+    "tailwindcss",
+    "tanstack",
+    "Terminova",
+    "tnfssc",
+    "undici",
+    "unmock",
+    "unsub",
+    "upserted",
+    "webdev",
+    "wordcloud",
+    "wouter",
+    "xvfb",
     "zustand"
   ],
   "security.workspace.trust.untrustedFiles": "open",

@@ -41,7 +41,6 @@ RUN nala install -y \
 # Install Code Server
 RUN curl -fsSL https://code-server.dev/install.sh | sh
 RUN code-server --install-extension ms-python.python \
-  --install-extension astro-build.astro-vscode \
   --install-extension formulahendry.auto-rename-tag \
   --install-extension jeff-hykin.better-cpp-syntax \
   --install-extension aaron-bond.better-comments \
@@ -61,31 +60,37 @@ RUN code-server --install-extension ms-python.python \
   --install-extension DavidAnson.vscode-markdownlint \
   --install-extension PKief.material-icon-theme \
   --install-extension PKief.material-product-icons \
-  --install-extension unifiedjs.vscode-mdx \
   --install-extension christian-kohler.path-intellisense \
   --install-extension redhat.vscode-xml \
-  --install-extension felixfbecker.php-intellisense \
   --install-extension esbenp.prettier-vscode \
   --install-extension Prisma.prisma \
   --install-extension redhat.vscode-commons \
   --install-extension rust-lang.rust-analyzer \
   --install-extension foxundermoon.shell-format \
-  --install-extension Divlo.vscode-styled-jsx-languageserver \
-  --install-extension Divlo.vscode-styled-jsx-syntax \
   --install-extension svelte.svelte-vscode \
   --install-extension bradlc.vscode-tailwindcss \
-  --install-extension Gruntfuggly.todo-tree \
-  --install-extension johnsoncodehk.volar \
   --install-extension redhat.vscode-yaml \
-  --install-extension stylelint.vscode-stylelint \
   --install-extension ms-azuretools.vscode-docker \
   --install-extension denoland.vscode-deno \
-  --install-extension redwan-hossain.skillavid-pure-black \
   --install-extension bierner.markdown-preview-github-styles \
   --install-extension zxh404.vscode-proto3 \
   --install-extension adpyke.codesnap \
+  --install-extension AMiner.codegeex \
   --install-extension oderwat.indent-rainbow \
-  --install-extension tabnine.tabnine-vscode
+  --install-extension signageos.signageos-vscode-sops \
+  --install-extension oven.bun-vscode \
+  --install-extension vadimcn.vscode-lldb \
+  --install-extension ferrielmelarpis.vscode-css-modules \
+  --install-extension rid9.datetime \
+  --install-extension Tobermory.es6-string-html \
+  --install-extension seatonjiang.gitmoji-vscode \
+  --install-extension yoavbls.pretty-ts-errors \
+  --install-extension arcanis.vscode-zipfs \
+  --install-extension ziglang.vscode-zig
+
+COPY ./extensions /extensions
+RUN code-server --install-extension /extensions/RaillyHugo.one-hunter-1.2.2.vsix \
+  --install-extension /extensions/tldraw-org.tldraw-vscode-2.0.13.vsix
 
 # Change default shell to fish
 RUN chsh -s /usr/bin/fish
@@ -100,7 +105,6 @@ RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf
 RUN mkdir -p ~/.config/fish/completions
 RUN ln -s ~/.asdf/completions/asdf.fish ~/.config/fish/completions
 RUN echo -e '\nsource ~/.asdf/asdf.fish' >> ~/.config/fish/config.fish
-RUN echo -e '\nlegacy_version_file = yes' >> ~/.asdfrc
 
 # Install asdf plugins
 RUN asdf plugin add bun && asdf install bun latest && asdf global bun latest
@@ -109,6 +113,7 @@ RUN asdf plugin add nodejs && asdf install nodejs latest && asdf global nodejs l
 RUN asdf plugin add python && asdf install python latest && asdf global python latest
 RUN asdf plugin add rust && asdf install rust latest && asdf global rust latest
 RUN asdf plugin add rust-analyzer && asdf install rust-analyzer latest && asdf global rust-analyzer latest
+RUN asdf plugin add sops && asdf install sops latest && asdf global sops latest
 RUN asdf reshim
 
 # Configure tools
