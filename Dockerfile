@@ -1,8 +1,7 @@
 FROM ubuntu:jammy
 
 # Install Nala
-RUN apt update
-RUN apt install --quiet --yes software-properties-common nala
+RUN apt update && apt install --quiet --yes software-properties-common nala && rm -rf /var/lib/apt/lists/*
 
 # Install basic dependencies
 RUN add-apt-repository --yes ppa:fish-shell/release-3
@@ -14,8 +13,7 @@ RUN nala install -y \
   curl \
   wget \
   fish \
-  unzip
-RUN nala install -y \
+  unzip \
   autoconf \
   bison \
   gettext \
@@ -75,7 +73,7 @@ RUN code-server --install-extension ms-python.python \
   --install-extension bierner.markdown-preview-github-styles \
   --install-extension zxh404.vscode-proto3 \
   --install-extension adpyke.codesnap \
-  --install-extension AMiner.codegeex \
+  --install-extension sourcegraph.cody-ai \
   --install-extension oderwat.indent-rainbow \
   --install-extension signageos.signageos-vscode-sops \
   --install-extension oven.bun-vscode \
@@ -90,7 +88,8 @@ RUN code-server --install-extension ms-python.python \
 
 COPY ./extensions /extensions
 RUN code-server --install-extension /extensions/RaillyHugo.one-hunter-1.2.2.vsix \
-  --install-extension /extensions/tldraw-org.tldraw-vscode-2.0.13.vsix
+  --install-extension /extensions/tldraw-org.tldraw-vscode-2.0.20.vsix && \
+  rm -rf /extensions
 
 # Change default shell to fish
 RUN chsh -s /usr/bin/fish
@@ -122,7 +121,9 @@ RUN rustup target add wasm32-unknown-unknown && rustup target add wasm32-wasi
 RUN asdf reshim
 
 # Install starship prompt
-RUN curl -fsSL https://starship.rs/install.sh | sh -s -- --yes && mkdir -p ~/.config && starship preset pastel-powerline > ~/.config/starship.toml && echo 'starship init fish | source' >> ~/.config/fish/config.fish
+RUN curl -fsSL https://starship.rs/install.sh | sh -s -- --yes && mkdir -p ~/.config && \
+  starship preset pastel-powerline > ~/.config/starship.toml && \
+  echo 'starship init fish | source' >> ~/.config/fish/config.fish
 
 # Copy static files (settings.json, etc.,)
 COPY ./settings.json /root/.local/share/code-server/User/settings.json
