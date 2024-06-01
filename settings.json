@@ -1,216 +1,96 @@
 {
-  "workbench.startupEditor": "none",
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python"
+  "[dockercompose]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "sqltools.connections": [],
-  "debug.console.fontSize": 18,
-  "debug.onTaskErrors": "debugAnyway",
-  "diffEditor.maxComputationTime": 0,
-  "editor.inlineSuggest.showToolbar": "always",
-  "editor.minimap.renderCharacters": false,
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
   "[dotenv]": {
     "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "code-eol.decorateBeforeEol": true,
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter-notebook"
-  },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[java]": {
-    "editor.defaultFormatter": "redhat.java"
-  },
-  "[go.mod]": {
-    "editor.defaultFormatter": "golang.Go"
-  },
-  "[proto3]": {
-    "editor.defaultFormatter": "zxh404.vscode-proto3"
-  },
-  "workbench.iconTheme": "material-icon-theme",
-  "files.exclude": {
-    "**/.project": true,
-    "**/.settings": true,
-    "**/.classpath": true,
-    "**/.factorypath": true
-  },
-  "editor.accessibilitySupport": "off",
-  "editor.inlineSuggest.enabled": true,
-  "editor.linkedEditing": true,
-  "git.confirmSync": false,
-  "eslint.alwaysShowStatus": true,
-  "svelte.enable-ts-plugin": true,
-  "eslint.probe": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "html",
-    "vue",
-    "markdown",
-    "svelte"
-  ],
-  "go.toolsManagement.autoUpdate": true,
-  "[yaml]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "files.watcherExclude": {
-    "**/.vercel/**": true,
-    "**/.next/**": true
-  },
-  "editor.detectIndentation": false,
-  "editor.tabSize": 2,
-  "terminal.integrated.tabs.enabled": true,
-  "eslint.packageManager": "yarn",
-  "prettier.bracketSameLine": true,
-  "redhat.telemetry.enabled": false,
-  "workbench.activityBar.visible": true,
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "prettier.printWidth": 120,
-  "terminal.integrated.fontFamily": "'CodeNewRoman Nerd Font', monospace",
-  "window.commandCenter": true,
-  "window.dialogStyle": "custom",
-  "window.nativeTabs": true,
-  "window.titleBarStyle": "custom",
-  "terminal.integrated.fontWeightBold": "599",
-  "workbench.enableExperiments": false,
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "update.mode": "start",
-  "[svelte]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "terminal.integrated.fontSize": 14,
+  "[ignore]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+  },
+  "[properties]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[rust]": {
+    "editor.defaultFormatter": "rust-lang.rust-analyzer"
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format"
+  },
+  "[svelte]": {
+    "editor.defaultFormatter": "svelte.svelte-vscode"
+  },
   "[toml]": {
     "editor.defaultFormatter": "tamasfe.even-better-toml"
   },
-  "editor.renderWhitespace": "none",
-  "[vanillajavascript]": {
+  "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "terminal.integrated.defaultProfile.linux": "zsh",
-  "[cpp]": {
-    "editor.defaultFormatter": "jeff-hykin.better-cpp-syntax"
-  },
-  "python.formatting.provider": "black",
-  "[rust]": {
-    "editor.defaultFormatter": "rust-lang.rust"
   },
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "editor.guides.bracketPairs": "active",
+  "[vanillajavascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml"
+    "editor.defaultFormatter": "DotJoshJohnson.xml"
   },
-  "git.autofetch": true,
-  "[jsonc]": {
+  "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "editor.bracketPairColorization.enabled": true,
-  "editor.fontLigatures": true,
-  "workbench.colorTheme": "One Hunter Theme Vercel",
-  "workbench.editor.untitled.hint": "hidden",
-  "python.defaultInterpreterPath": "/usr/bin/python",
-  "typescript.disableAutomaticTypeAcquisition": true,
-  "terminal.integrated.inheritEnv": false,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "notebook.lineNumbers": "on",
-  "editor.suggestSelection": "first",
-  "git.enableSmartCommit": true,
-  "explorer.confirmDelete": false,
-  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
-  "files.eol": "\n",
-  "editor.fontFamily": "'FiraCode Nerd Font', 'MesloLGS NF', 'Courier New', monospace",
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "update.showReleaseNotes": false,
-  "editor.fontSize": 15,
-  "eslint.format.enable": true,
-  "prettier.arrowParens": "avoid",
-  "[markdown]": {
-    "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
-  },
-  "files.associations": {
-    "*.js": "javascript"
-  },
-  "workbench.settings.enableNaturalLanguageSearch": false,
-  "telemetry.telemetryLevel": "off",
-  "terminal.integrated.env.osx": {
-    "FIG_NEW_SESSION": "1"
-  },
-  "[php]": {
-    "editor.defaultFormatter": "felixfbecker.php-intellisense"
-  },
-  "[ignore]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "cmake.configureOnOpen": false,
-  "chat.editor.fontSize": 18,
-  "Codegeex.CandidateNum": "3 (slow)",
-  "Codegeex.DecodingStrategies.temp": 0.01,
-  "Codegeex.DecodingStrategies.topk": 40,
-  "Codegeex.DecodingStrategies.topp": 0.8,
-  "Codegeex.Explanation.LanguagePreference": "en-US",
-  "Codegeex.Privacy": false,
-  "[dart]": {
-    "editor.defaultFormatter": "Dart-Code.dart-code"
   },
   "cSpell.userWords": [
     "astro",
+    "AUTHTOKEN",
+    "Autoscaler",
     "azuretools",
     "chakra",
     "chartjs",
+    "clsx",
+    "collapsable",
     "concat",
     "conv",
     "corepack",
-    "Creds",
-    "crunker",
     "cupertino",
-    "Deepgram",
-    "gmeet",
+    "daisyui",
+    "dioxus",
+    "firestore",
     "headlessui",
-    "jciq",
+    "iconify",
+    "immer",
     "kafkajs",
     "kompose",
     "kubectl",
     "Kubernetes",
     "kustomize",
-    "libreddit",
     "middlewares",
     "minio",
     "nextui",
     "nuxt",
     "nuxtjs",
-    "Plyr",
-    "rustdesk",
+    "OPENAI",
+    "pino",
     "rxchain",
-    "searxng",
-    "sharath",
-    "skaffold",
-    "stylelint",
-    "surrealdb",
-    "tailwindcss",
-    "tnfssc",
-    "undici",
-    "webdev",
-    "wordcloud",
-    "wouter",
-    "zustand",
-    "proto",
-    "protos",
-    "ptmx",
-    "rustdesk",
-    "rxchain",
-    "searxng",
     "sharath",
     "skaffold",
     "stylelint",
@@ -218,50 +98,97 @@
     "surrealdb",
     "tailwindcss",
     "tanstack",
-    "Terminova",
     "tnfssc",
+    "trpc",
     "undici",
     "unmock",
     "unsub",
     "upserted",
+    "valibot",
     "webdev",
-    "wordcloud",
+    "welldone",
     "wouter",
-    "xvfb",
     "zustand"
   ],
-  "security.workspace.trust.untrustedFiles": "open",
   "css.lint.unknownAtRules": "ignore",
-  "workbench.productIconTheme": "material-product-icons",
+  "editor.accessibilitySupport": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "'Monaspace Argon Var', 'UbuntuMono Nerd Font'",
+  "editor.fontLigatures": "'calt', 'liga', 'dlig', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08'",
+  "editor.fontWeight": "700",
+  "editor.guides.bracketPairs": "active",
+  "editor.inlineSuggest.enabled": true,
+  "editor.linkedEditing": true,
+  "editor.renderWhitespace": "none",
+  "editor.suggestSelection": "first",
+  "editor.tabSize": 2,
+  "eslint.format.enable": true,
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "files.associations": {
+    "*.js": "javascript"
+  },
+  "files.eol": "\n",
+  "files.exclude": {
+    "**/.classpath": true,
+    "**/.factorypath": true,
+    "**/.project": true,
+    "**/.settings": true
+  },
+  "files.watcherExclude": {
+    "**/.next/**": true,
+    "**/.vercel/**": true
+  },
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.enableSmartCommit": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "notebook.lineNumbers": "on",
+  "prettier.arrowParens": "avoid",
+  "prettier.bracketSameLine": true,
+  "prettier.printWidth": 120,
+  "redhat.telemetry.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "telemetry.telemetryLevel": "off",
+  "terminal.integrated.profiles.linux": {
+    "fish": {
+      "path": "host-spawn",
+      "args": ["fish"]
+    }
+  },
+  "terminal.integrated.fontFamily": "'Monaspace Argon Var', 'UbuntuMono Nerd Font', 'MesloLGS NF', monospace",
+  "terminal.integrated.fontSize": 16,
+  "terminal.integrated.inheritEnv": false,
   "terminal.integrated.shellIntegration.enabled": true,
-  "editor.tokenColorCustomizations": {
-    "comments": "#a2ff0097"
-  },
-  "[go]": {
-    "editor.defaultFormatter": "golang.Go"
-  },
-  "go.inlayHints.constantValues": true,
-  "go.inlayHints.compositeLiteralTypes": true,
-  "go.inlayHints.compositeLiteralFields": true,
-  "go.inlayHints.assignVariableTypes": true,
-  "go.inlayHints.functionTypeParameters": true,
-  "go.inlayHints.parameterNames": true,
-  "go.inlayHints.rangeVariableTypes": true,
-  "go.survey.prompt": false,
-  "[shellscript]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[properties]": {
-    "editor.defaultFormatter": "foxundermoon.shell-format"
-  },
-  "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode"
-  },
-  "editor.fontWeight": "normal",
-  "[dockercompose]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
-  },
-  "[dockerfile]": {
-    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  "terminal.integrated.tabs.enabled": true,
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "update.mode": "start",
+  "update.showReleaseNotes": false,
+  "workbench.enableExperiments": false,
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.productIconTheme": "material-product-icons",
+  "workbench.settings.enableNaturalLanguageSearch": false,
+  "svelte.enable-ts-plugin": true,
+  "markdown-preview-github-styles.colorTheme": "system",
+  "explorer.sortOrder": "filesFirst",
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "editor.fontSize": 16,
+  "terminal.integrated.cursorStyle": "line",
+  "gitlens.views.contributors.showStatistics": true,
+  "scm.inputFontSize": 18,
+  "debug.console.fontSize": 18,
+  "markdown.preview.fontSize": 18,
+  "editor.minimap.renderCharacters": false,
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.colorTheme": "Andromeda Italic",
+  "editor.inlineSuggest.suppressSuggestions": true,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "astro", "svelte"],
+  "prettier.documentSelectors": ["**/*.astro"],
+  "workbench.startupEditor": "none",
+  "window.titleBarStyle": "custom",
+  "remote.extensionKind": {
+    "continue.continue": ["workspace"]
   }
 }

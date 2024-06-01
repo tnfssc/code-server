@@ -38,58 +38,60 @@ RUN nala install -y \
 
 # Install Code Server
 RUN curl -fsSL https://code-server.dev/install.sh | sh
-RUN code-server --install-extension ms-python.python \
-  --install-extension formulahendry.auto-rename-tag \
+RUN code-server \
+  # Language
+  --install-extension ms-python.python \
   --install-extension jeff-hykin.better-cpp-syntax \
-  --install-extension aaron-bond.better-comments \
-  --install-extension streetsidesoftware.code-spell-checker \
-  --install-extension Dart-Code.dart-code \
-  --install-extension mikestead.dotenv \
-  --install-extension tamasfe.even-better-toml \
-  --install-extension cschleiden.vscode-github-actions \
-  --install-extension codezombiech.gitignore \
-  --install-extension eamodio.gitlens \
   --install-extension golang.Go \
-  --install-extension ecmel.vscode-html-css \
-  --install-extension wix.vscode-import-cost \
-  --install-extension Orta.vscode-jest \
-  --install-extension ms-kubernetes-tools.vscode-kubernetes-tools \
-  --install-extension redhat.java \
-  --install-extension DavidAnson.vscode-markdownlint \
-  --install-extension PKief.material-icon-theme \
-  --install-extension PKief.material-product-icons \
-  --install-extension christian-kohler.path-intellisense \
-  --install-extension redhat.vscode-xml \
-  --install-extension esbenp.prettier-vscode \
-  --install-extension Prisma.prisma \
-  --install-extension redhat.vscode-commons \
+  --install-extension ziglang.vscode-zig \
   --install-extension rust-lang.rust-analyzer \
-  --install-extension foxundermoon.shell-format \
-  --install-extension svelte.svelte-vscode \
-  --install-extension bradlc.vscode-tailwindcss \
-  --install-extension redhat.vscode-yaml \
-  --install-extension ms-azuretools.vscode-docker \
-  --install-extension denoland.vscode-deno \
-  --install-extension bierner.markdown-preview-github-styles \
-  --install-extension zxh404.vscode-proto3 \
-  --install-extension adpyke.codesnap \
-  --install-extension sourcegraph.cody-ai \
-  --install-extension oderwat.indent-rainbow \
-  --install-extension signageos.signageos-vscode-sops \
   --install-extension oven.bun-vscode \
   --install-extension vadimcn.vscode-lldb \
-  --install-extension ferrielmelarpis.vscode-css-modules \
-  --install-extension rid9.datetime \
+  # Theme
+  --install-extension PKief.material-icon-theme \
+  --install-extension PKief.material-product-icons \
+  --install-extension FelixIcaza.andromeda \
+  --install-extension oderwat.indent-rainbow \
+  # Web
+  --install-extension ecmel.vscode-html-css \
   --install-extension Tobermory.es6-string-html \
-  --install-extension seatonjiang.gitmoji-vscode \
+  --install-extension bradlc.vscode-tailwindcss \
+  --install-extension svelte.svelte-vscode \
+  --install-extension ferrielmelarpis.vscode-css-modules \
   --install-extension yoavbls.pretty-ts-errors \
+  --install-extension csstools.postcss \
+  # Linting and Formatting
+  --install-extension esbenp.prettier-vscode \
+  --install-extension foxundermoon.shell-format \
+  # Quality of life
+  --install-extension formulahendry.auto-rename-tag \
+  --install-extension wayou.vscode-todo-highlight \
+  --install-extension wix.vscode-import-cost \
+  --install-extension Continue.continue \
+  --install-extension streetsidesoftware.code-spell-checker \
+  --install-extension EditorConfig.EditorConfig \
+  --install-extension mgmcdermott.vscode-language-babel \
+  --install-extension dbaeumer.vscode-eslint \
+  --install-extension expo.vscode-expo-tools \
+  --install-extension antfu.unocss \
+  # Data/Config
+  --install-extension codezombiech.gitignore \
+  --install-extension mikestead.dotenv \
+  --install-extension redhat.vscode-yaml \
+  --install-extension tamasfe.even-better-toml \
+  --install-extension redhat.vscode-xml \
+  --install-extension signageos.signageos-vscode-sops \
+  # Markdown
+  --install-extension DavidAnson.vscode-markdownlint \
+  --install-extension bierner.markdown-preview-github-styles \
+  # Misc
+  --install-extension redhat.vscode-commons \
+  --install-extension ms-azuretools.vscode-docker \
+  --install-extension adpyke.codesnap \
+  --install-extension rid9.datetime \
+  --install-extension seatonjiang.gitmoji-vscode \
   --install-extension arcanis.vscode-zipfs \
-  --install-extension ziglang.vscode-zig
-
-COPY ./extensions /extensions
-RUN code-server --install-extension /extensions/RaillyHugo.one-hunter-1.2.2.vsix \
-  --install-extension /extensions/tldraw-org.tldraw-vscode-2.0.20.vsix && \
-  rm -rf /extensions
+  --install-extension pomdtr.excalidraw-editor
 
 # Change default shell to fish
 RUN chsh -s /usr/bin/fish
@@ -107,7 +109,6 @@ RUN echo -e '\nsource ~/.asdf/asdf.fish' >> ~/.config/fish/config.fish
 
 # Install asdf plugins
 RUN asdf plugin add bun && asdf install bun latest && asdf global bun latest
-RUN asdf plugin add golang && asdf install golang latest && asdf global golang latest
 RUN asdf plugin add nodejs && asdf install nodejs latest && asdf global nodejs latest
 RUN asdf plugin add python && asdf install python latest && asdf global python latest
 RUN asdf plugin add rust && asdf install rust latest && asdf global rust latest
@@ -134,4 +135,4 @@ WORKDIR /workspace
 
 # Start code-server
 EXPOSE 8080
-CMD [ "code-server", "--bind-addr", "0.0.0.0:8080", "--auth", "none" ]
+CMD [ "code-server", "/workspace", "--bind-addr", "0.0.0.0:8080", "--auth", "none" ]
